@@ -1,3 +1,33 @@
+<div id="header" align='center'>
+   <image src="https://2.bp.blogspot.com/-doC7QrLG408/VReRDZc3xMI/AAAAAAAAAO4/ANGgmLcmqdw/s1600/tumblr_mfadnnbR2H1qevo4io1_500.gif" alt="loop">
+</div>
+
+<div id="badges">
+  <a href="https://www.linkedin.com/in/maximiliano-barrientos-nunez-964b03a7/">
+    <img src="https://img.shields.io/badge/LinkedIn-blue??style=plastic&logo=LinkedIn&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+  <a href="mailto: elbodysathba@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=plastic&logo=gmail&logoColor=white" alt="gmail Badge"/>
+  </a>
+  <a href="mailto: maximilianobarrientos@msn.com">
+    <img src="https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=plastic&logo=microsoft-outlook&logoColor=white" alt="outlook Badge"/>
+  </a>
+  <img src="https://komarev.com/ghpvc/?username=mabanu&style=flat-square&color=blue" alt="visit counter"/>
+</div>
+
+---
 # Tiny Blog
 
-![](https://media3.giphy.com/media/ptp7jVo3he6BO/giphy.gif?cid=ecf05e47ya5eo16e0yjvtpi0ky1jtux64tk7m2sx1edn1p13&rid=giphy.gif&ct=g)
+![](https://media1.giphy.com/media/scZPhLqaVOM1qG4lT9/giphy.webp?cid=ecf05e47r46fh89lkigyvnyfx9qb6g2kqgy9np39fa3kp2cz&rid=giphy.webp&ct=g)
+
+---
+
+## To Start
+
+First, We run the API.
+
+### `npm run api`
+
+Second, We run our React Page
+
+### `npm start

@@ -46,7 +46,9 @@ export function PostCard(props: IPost) {
             sx={{
                 flexDirection: { xs: 'row', md: 'column' },
                 minWidth: { xs: '100%', md: 'auto' },
-                gap: 1,           
+                gap: 1,
+                m: 0,
+                height: '100%'
             }}
                 >
 
@@ -55,30 +57,32 @@ export function PostCard(props: IPost) {
                         {post.title}
                     </Typography>
 
+                <Stack
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"                   
+                >
+                    {post.tags?.map((tag, index) => (
+                        <Box sx={{ px: 0.5 }} key={index}>
+                        <Chip size="sm"
+                            variant="outlined" >{tag}</Chip>
+                        </Box>
+                    ))}
+                </Stack>
+
                     <Typography level="body3" fontSize="md" sx={{ p: 2 }}>
                         {post.body}
                     </Typography>
 
-                    <Stack
-                        direction="row"
-                        justifyContent="flex-start"
-                        alignItems="center"
-                        sx={{pl: 2} }
-                    >
-                        {post.tags?.map((tag, index) => (
-
-                            <Chip size="sm"
-                                variant="soft" key={index}>{tag}</Chip>
-
-                        ))}
-                    </Stack>
+                    
 
                     <Stack
-                        direction="row"
-                        justifyContent="flex-end"
-                        alignItems="flex-end"
+                    direction="row"
+                    justifyContent="flex-end"
+                    alignItems="flex-end"
+                    sx={{ py: 2 }}
                     >
-                        <Button variant="outlined" size="sm" onClick={() => HandelClick(post)}
+                        <Button variant="solid" size="sm" onClick={() => HandelClick(post)}
                             sx={{
                                 mx: 1
                             }}
@@ -86,7 +90,7 @@ export function PostCard(props: IPost) {
                             Edit
                         </Button>
                         <Button
-                            variant="outlined"
+                            variant="solid"
                             size="sm"
                             onClick={() => {
                                 const colors: styles.ColorPaletteProp[] = [
@@ -103,7 +107,7 @@ export function PostCard(props: IPost) {
                         >
                             Color
                         </Button>
-                        <Button variant="outlined" size="sm" onClick={() => navigate('/posts/' + post.id)}
+                        <Button variant="solid" size="sm" onClick={() => navigate('/posts/' + post.id)}
                             sx={{
                                 mx: 1
                             }}

@@ -13,7 +13,7 @@ function NavBar() {
             sx={{
                 bgcolor: 'background.body',
                 flexGrow: 1,
-                m: -3,
+                m: 0,
                 overflowX: 'hidden',
                 borderRadius: 'md',
             }}

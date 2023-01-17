@@ -20,9 +20,10 @@ function ProjectList({ posts, onSave }: ProjectListProps) {
     }
 
     return (
-        <Grid container spacing={6} sx={{flexGrow: 1} } >
+        <Grid container spacing={6} sx={{ flexGrow: 1, m: 0 }} justifyContent="center"
+            alignItems="top">
             {posts.map((post) => (
-                <Grid key={post.id} xs={4} md={3}>
+                <Grid key={post.id} xs={4} md={3} >
                     <Box>
                     {post === postBeingEdited ? (
                         <PostForm

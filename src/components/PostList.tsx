@@ -1,3 +1,5 @@
+import { Box } from "@mui/joy";
+import Grid  from "@mui/joy/Grid";
 import { useState } from "react";
 import { Post } from "./model/Post";
 import { PostCard } from "./PostCard";
@@ -18,9 +20,10 @@ function ProjectList({ posts, onSave }: ProjectListProps) {
     }
 
     return (
-        <ul className='row'>
+        <Grid container spacing={6} sx={{flexGrow: 1} } >
             {posts.map((post) => (
-                <div key={post.id} className='cols-sm'>
+                <Grid key={post.id} xs={4} md={3}>
+                    <Box>
                     {post === postBeingEdited ? (
                         <PostForm
                             post={post}
@@ -30,10 +33,11 @@ function ProjectList({ posts, onSave }: ProjectListProps) {
                         <PostCard
                             post={post}
                             onEdit={HandleEdit} />
-                    )}
-                </div>
+                        )}
+                    </Box>
+                </Grid>
             ))}
-        </ul>
+        </Grid>
     );
 }
 

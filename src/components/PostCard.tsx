@@ -1,7 +1,14 @@
-import { Stack, Button, Card, ColorPaletteProp, Divider, Grid, Typography, Chip, CardContent, Box } from "@mui/joy";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import * as styles from '@mui/joy/styles';
+import Box from '@mui/joy/Box';
+import Button from '@mui/joy/Button';
+import Card from '@mui/joy/Card';
+import CardContent from '@mui/joy/CardContent';
+import Chip from '@mui/joy/Chip';
+import Typography from '@mui/joy/Typography';
+import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Post } from "./model/Post";
+import Stack from '@mui/joy/Stack';
 
 interface IPost {
     post: Post;
@@ -9,7 +16,7 @@ interface IPost {
 }
 
 function RandomColor() {
-    const colors: ColorPaletteProp[] = [
+    const colors: styles.ColorPaletteProp[] = [
         'primary',
         'neutral',
         'danger',
@@ -20,107 +27,95 @@ function RandomColor() {
     return colors[Math.floor(Math.random() * 6)]
 }
 
+
+
 export function PostCard(props: IPost) {
-    const [color, setColor] = useState<ColorPaletteProp>(RandomColor);
+    const [color, setColor] = useState<styles.ColorPaletteProp>(RandomColor);
+    const navigate = useNavigate();
     const { post, onEdit } = props;
+
 
     const HandelClick = (postBeingEdited: Post) => { onEdit(postBeingEdited); };
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexDirection: { xs: 'column', md: 'row' },
-                alignItems: { md: 'flex-start' },
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-                gap: 2,
-            }}
-        >
-        <Card variant="soft"
-            color={color}
-            invertedColors
-            sx={{
-                display: 'flex',
-                alignItems: 'center',
-                flexGrow: 1,
-                p: 2,
-                m: 3,
-                borderRadius: { xs: 12, sm: 12 },
-                width: 320,
-                maxWidth: 400,
-                ...(color !== 'warning' && {
-                    background: (theme) =>
-                        `linear-gradient(to top, ${theme.vars.palette[color][600]}, ${theme.vars.palette[color][500]})`,
-                }),
-            }}>
 
-            <Divider orientation="horizontal" sx={{ m: 2 }}>
-                Title
-            </Divider>
-            <CardContent>
-                <Link to={'/posts/' + post.id}>
-                    <Typography level="h1" fontSize="md" sx={{ mb: 0.5 }}>
-                        <strong>{post.title}</strong>
+        
+            <Card
+            variant="soft"
+            size="sm"
+            sx={{
+                flexDirection: { xs: 'row', md: 'column' },
+                minWidth: { xs: '100%', md: 'auto' },
+                gap: 1,           
+            }}
+                >
+
+                <CardContent>
+                    <Typography level="body2" fontSize='lg' sx={{ p: 2 }}>
+                        {post.title}
                     </Typography>
-                    <Divider orientation="horizontal" sx={{ m: 2 }} >
-                        Body
-                    </Divider>
-                    <Typography level="body2" fontSize="md" sx={{ mb: 0.5 }}>
+
+                    <Typography level="body3" fontSize="md" sx={{ p: 2 }}>
                         {post.body}
                     </Typography>
-                    <Divider orientation="horizontal" sx={{ m: 2 }} > End</Divider>
-                </Link>
 
-                <Stack
-                    direction="row"
-                    justifyContent="flex-start"
-                    alignItems="flex-start"
-                >
-
-                    {post.tags?.map((tag, index) => (
-
-                        <Chip size="sm"
-                            variant="outlined" key={index}>{tag}</Chip>
-
-                    ))}
-                </Stack>
-
-                <Stack
-                    direction="row"
-                    justifyContent="flex-start"
-                    alignItems="flex-end"
-                >
-                    <Button variant="outlined" size="sm" onClick={() => HandelClick(post)}
-                        sx={{
-                            mx: 1
-                        }}
+                    <Stack
+                        direction="row"
+                        justifyContent="flex-start"
+                        alignItems="center"
+                        sx={{pl: 2} }
                     >
-                        Edit
-                    </Button>
-                    <Button
-                        variant="outlined"
-                        size="sm"
-                        onClick={() => {
-                            const colors: ColorPaletteProp[] = [
-                                'primary',
-                                'neutral',
-                                'danger',
-                                'info',
-                                'success',
-                                'warning',
-                            ];
-                            const nextColor = colors.indexOf(color);
-                            setColor(colors[nextColor + 1] ?? colors[0]);
-                        }}
-                    >
-                        Color
-                    </Button>
-                </Stack>
+                        {post.tags?.map((tag, index) => (
 
-            </CardContent>
+                            <Chip size="sm"
+                                variant="soft" key={index}>{tag}</Chip>
+
+                        ))}
+                    </Stack>
+
+                    <Stack
+                        direction="row"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                    >
+                        <Button variant="outlined" size="sm" onClick={() => HandelClick(post)}
+                            sx={{
+                                mx: 1
+                            }}
+                        >
+                            Edit
+                        </Button>
+                        <Button
+                            variant="outlined"
+                            size="sm"
+                            onClick={() => {
+                                const colors: styles.ColorPaletteProp[] = [
+                                    'primary',
+                                    'neutral',
+                                    'danger',
+                                    'info',
+                                    'success',
+                                    'warning',
+                                ];
+                                const nextColor = colors.indexOf(color);
+                                setColor(colors[nextColor + 1] ?? colors[0]);
+                            }}
+                        >
+                            Color
+                        </Button>
+                        <Button variant="outlined" size="sm" onClick={() => navigate('/posts/' + post.id)}
+                            sx={{
+                                mx: 1
+                            }}
+                        >
+                            Go to Post
+                        </Button>
+                    </Stack>
+
+                </CardContent>
             </Card>
-            </Box>
+      
+
 
     )
 }   

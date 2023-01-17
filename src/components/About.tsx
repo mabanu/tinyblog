@@ -1,9 +1,11 @@
-function About() {
-    return (
-        <div>
-            <p>ToDo</p>
-        </div>
-        )
-}
+import { Box, Grid } from "@mui/joy";
+import Tests from "./Tests";
 
-export default About;
+export default function About() {
+    return (
+        
+            <Tests />
+        
+
+    )
+}

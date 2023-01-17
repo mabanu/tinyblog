@@ -3,13 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CssVarsProvider, StyledEngineProvider } from '@mui/joy';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
+    <React.StrictMode>
+        <StyledEngineProvider injectFirst>
+            <CssVarsProvider>
+                <App />
+            </CssVarsProvider>
+        </StyledEngineProvider>    
   </React.StrictMode>
 );
 

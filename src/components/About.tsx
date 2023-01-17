@@ -1,9 +1,9 @@
-function HomePage() {
+function About() {
     return (
         <div>
             <p>ToDo</p>
         </div>
-    )
+        )
 }
 
-export default HomePage;
+export default About;

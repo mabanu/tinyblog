@@ -4,13 +4,9 @@ import Chip from '@mui/joy/Chip';
 import Tabs from '@mui/joy/Tabs';
 import TabList from '@mui/joy/TabList';
 import Tab, { tabClasses } from '@mui/joy/Tab';
-import TabPanel from '@mui/joy/TabPanel';
-import Typography from '@mui/joy/Typography';
-import Input from '@mui/joy/Input';
-import SearchRounded from '@mui/icons-material/SearchRounded';
-import HomePage from './HomePage';
+import { NavLink } from 'react-router-dom';
 
-export default function NavBar() {
+function NavBar() {
     const [index, setIndex] = React.useState(0);
     return (
         <Box
@@ -35,7 +31,7 @@ export default function NavBar() {
                         maxWidth: 400,
                         mx: 'auto',
                         pt: 2,
-                        alignSelf: 'flex-start',
+                        alignSelf: 'flex-end',
                         [`& .${tabClasses.root}`]: {
                             bgcolor: 'transparent',
                             boxShadow: 'none',
@@ -62,70 +58,33 @@ export default function NavBar() {
                         },
                     }}
                 >
-                    <Tab>
-                        Deals{' '}
-                        <Chip
-                            size="sm"
-                            variant="soft"
-                            color={index === 0 ? 'primary' : 'neutral'}
-                            sx={{ ml: 1 }}
-                        >
-                            14
-                        </Chip>
-                    </Tab>
-                    <Tab>
-                        Library{' '}
-                        <Chip
-                            size="sm"
-                            variant="soft"
-                            color={index === 1 ? 'primary' : 'neutral'}
-                            sx={{ ml: 1 }}
-                        >
-                            24
-                        </Chip>
-                    </Tab>
-                    <Tab>Search library</Tab>
+                    <NavLink to='/' className='active'>
+                        <Tab variant="soft" color={index === 0 ? 'primary' : 'neutral'}>
+                            Home {' '}                           
+                        </Tab>
+                    </NavLink>
+                    <NavLink to='/posts'>
+                        <Tab>
+                            Posts{' '}
+                            <Chip
+                                size="sm"
+                                variant="soft"
+                                color={index === 1 ? 'primary' : 'neutral'}
+                                sx={{ ml: 1 }}
+                            >
+                                30
+                            </Chip>
+                        </Tab>
+                    </NavLink>
+                    <NavLink to='/about'>
+                        <Tab>About{' '}</Tab>
+                    </NavLink>
                 </TabList>
-                <Box
-                    sx={(theme) => ({
-                        '--bg': theme.vars.palette.background.level3,
-                        height: '1px',
-                        background: 'var(--bg)',
-                        boxShadow: '0 0 0 100vmax var(--bg)',
-                        clipPath: 'inset(0 -100vmax)',
-                    })}
-                />
-                <Box
-                    sx={(theme) => ({
-                        '--bg': theme.vars.palette.background.surface,
-                        background: 'var(--bg)',
-                        boxShadow: '0 0 0 100vmax var(--bg)',
-                        clipPath: 'inset(0 -100vmax)',
-                        px: 4,
-                        py: 2,
-                    })}
-                >
-                    
-                    <TabPanel value={1}>
-                        <Typography
-                            level="h2"
-                            component="div"
-                            fontSize="lg"
-                            mb={2}
-                            textColor="text.primary"                            
-                        >
-                            Library panel
-                        </Typography>
-                    </TabPanel>
-                    <TabPanel value={2}>
-                        <Input
-                            autoFocus
-                            placeholder="Type in third panel..."
-                            startDecorator={<SearchRounded />}
-                        />
-                    </TabPanel>
-                </Box>
+                
             </Tabs>
         </Box>
     );
 }
+
+
+export default NavBar;

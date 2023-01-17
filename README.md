@@ -17,6 +17,9 @@
 ---
    
 # Tiny Blog
+
+![](https://img.shields.io/aur/last-modified/tinyblog?style=plastic)
+
 <div id="header" align='center'>
    <image src="https://media1.giphy.com/media/scZPhLqaVOM1qG4lT9/giphy.webp?cid=ecf05e47r46fh89lkigyvnyfx9qb6g2kqgy9np39fa3kp2cz&rid=giphy.webp&ct=g" alt="Cat Coding">
 </div>

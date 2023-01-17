@@ -19,6 +19,11 @@
 # Tiny Blog
 
 ![](https://media1.giphy.com/media/scZPhLqaVOM1qG4lT9/giphy.webp?cid=ecf05e47r46fh89lkigyvnyfx9qb6g2kqgy9np39fa3kp2cz&rid=giphy.webp&ct=g)
+   
+   ## Description
+   
+   Tiny Blog build with React and Typescript. For the Styling I use Material UI.
+   This blog will show Posts that are fetch from a mock API, and We can Edit that Posts.
 
 ---
 
@@ -33,6 +38,5 @@ Second, We run our React Page
 ### `npm start`
    
 <h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> <img src="https://bitsrc.imgix.net/3b69976526d31a20a1fd238f5a32a704cf437dd6.png" alt="typescript" width="40" height="40"/> </a> </p>
-   
-   
+<p align="left"> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> <img src="https://bitsrc.imgix.net/3b69976526d31a20a1fd238f5a32a704cf437dd6.png" alt="Material UI" width="40" height="40"/> </a> </p>
+     

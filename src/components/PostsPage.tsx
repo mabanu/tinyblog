@@ -1,4 +1,5 @@
-﻿import { Fragment, useEffect, useState } from "react";
+﻿import { Typography } from "@mui/joy";
+import { Fragment, useEffect, useState } from "react";
 import { Post } from "./model/Post";
 import PostList from "./PostList";
 import { tinyBlogAPI } from "./tinyBlogAPI";
@@ -57,7 +58,7 @@ function PostsPage() {
 
     return (
         <Fragment>
-            <h1>Projects</h1>
+            <Typography level='h1'>Blog</Typography>
 
             {error && (
                 <div className='row'>

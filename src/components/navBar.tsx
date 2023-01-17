@@ -5,83 +5,62 @@ import Tabs from '@mui/joy/Tabs';
 import TabList from '@mui/joy/TabList';
 import Tab, { tabClasses } from '@mui/joy/Tab';
 import { NavLink } from 'react-router-dom';
+import { Button, ColorPaletteProp, Divider, IconButton, Input } from '@mui/joy';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import SendIcon from '@mui/icons-material/Send';
 
-function NavBar() {
+interface IPropColor {
+    color: ColorPaletteProp;
+    onPropColor: (prop: ColorPaletteProp) => void;
+}
+
+function NavBar(props: IPropColor) {
     const [index, setIndex] = React.useState(0);
+
     return (
-        <Box
-            sx={{
-                bgcolor: 'background.body',
-                flexGrow: 1,
-                m: 0,
-                overflowX: 'hidden',
-                borderRadius: 'md',
-            }}
-        >
-            <Tabs
-                aria-label="Pipeline"
-                value={index}
-                onChange={(event, value) => setIndex(value as number)}
-                sx={{ '--Tabs-gap': '0px' }}
-            >
-                <TabList
-                    variant="plain"
-                    sx={{
-                        width: '100%',
-                        maxWidth: 400,
-                        mx: 'auto',
-                        pt: 2,
-                        alignSelf: 'flex-end',
-                        [`& .${tabClasses.root}`]: {
-                            bgcolor: 'transparent',
-                            boxShadow: 'none',
-                            '&:hover': {
-                                bgcolor: 'transparent',
-                            },
-                            [`&.${tabClasses.selected}`]: {
-                                color: 'primary.plainColor',
-                                fontWeight: 'lg',
-                                '&:before': {
-                                    content: '""',
-                                    display: 'block',
-                                    position: 'absolute',
-                                    zIndex: 1,
-                                    bottom: '-1px',
-                                    left: 'var(--List-item-paddingLeft)',
-                                    right: 'var(--List-item-paddingRight)',
-                                    height: '3px',
-                                    borderTopLeftRadius: '3px',
-                                    borderTopRightRadius: '3px',
-                                    bgcolor: 'primary.500',
-                                },
-                            },
-                        },
+        <Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <IconButton
+                    variant="soft"
+                    size="sm"
+                    onClick={() => {
+                        const colors: ColorPaletteProp[] = [
+                            'primary',
+                            'neutral',
+                            'danger',
+                            'info',
+                            'success',
+                            'warning',
+                        ];
+                        const nextColor = colors.indexOf(props.color);
+                        props.onPropColor(colors[nextColor + 1] ?? colors[0]);
                     }}
+                    sx={{ borderRadius: '50%' }}
                 >
-                    <NavLink to='/' className='active'>
-                        <Tab variant="soft" color={index === 0 ? 'primary' : 'neutral'}>
-                            Home {' '}                           
-                        </Tab>
-                    </NavLink>
-                    <NavLink to='/posts'>
-                        <Tab>
-                            Posts{' '}
-                            <Chip
-                                size="sm"
-                                variant="soft"
-                                color={index === 1 ? 'primary' : 'neutral'}
-                                sx={{ ml: 1 }}
-                            >
-                                30
-                            </Chip>
-                        </Tab>
-                    </NavLink>
-                    <NavLink to='/about'>
-                        <Tab>About{' '}</Tab>
-                    </NavLink>
-                </TabList>
-                
-            </Tabs>
+                    <img alt="" src="/static/branding/pricing/block-green.svg" />
+                </IconButton>
+                <Divider orientation="vertical" />
+                <IconButton variant="plain">
+                    <FacebookRoundedIcon />
+                </IconButton>
+                <IconButton variant="plain">
+                    <GitHubIcon />
+                </IconButton>
+                <Input
+                    variant="soft"
+                    placeholder="Your Email"
+                    type="email"
+                    name="email"
+                    endDecorator={
+                        <Button variant="soft" aria-label="subscribe">
+                            <SendIcon />
+                        </Button>
+                    }
+                    sx={{ ml: 'auto', display: { xs: 'none', md: 'flex' } }}
+                />
+            </Box>
+            <Divider sx={{ my: 2 }} />
         </Box>
     );
 }

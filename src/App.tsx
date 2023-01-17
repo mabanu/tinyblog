@@ -27,7 +27,8 @@ function RandomColor() {
 function App() {
 
     const [color, setColor] = React.useState<ColorPaletteProp>(RandomColor);
-   
+
+    const setPropColor = (prop: ColorPaletteProp) => { setColor(prop) }
 
     return (
 
@@ -44,7 +45,7 @@ function App() {
                     m: -1
                 }}
             >
-                <NavBar />
+                <NavBar color={color} onPropColor={setPropColor} />
                 <Routes>
                     <Route path='/' element={<HomePage />} />
                     <Route path='/posts' element={<PostsPage />} />

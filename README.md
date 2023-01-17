@@ -23,7 +23,7 @@
    ## Description
    
    Tiny Blog build with React and Typescript. For the Styling I use Material UI.
-   This blog will show Posts that are fetch from a mock API, and We can Edit that Posts.
+   This blog will show Posts that are fetch from a mock API that I run locally, and We can Edit that Posts.
 
 ---
 

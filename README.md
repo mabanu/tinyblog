@@ -11,8 +11,7 @@
   </a>
   <a href="mailto: maximilianobarrientos@msn.com">
     <img src="https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=plastic&logo=microsoft-outlook&logoColor=white" alt="outlook Badge"/>
-  </a>
-  <img src="https://komarev.com/ghpvc/?username=mabanu&style=flat-square&color=blue" alt="visit counter"/>
+  </a>  
 </div>
 
 ---

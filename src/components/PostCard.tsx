@@ -15,31 +15,15 @@ interface IPost {
     onEdit: (post: Post) => void;
 }
 
-function RandomColor() {
-    const colors: styles.ColorPaletteProp[] = [
-        'primary',
-        'neutral',
-        'danger',
-        'info',
-        'success',
-        'warning',
-    ];
-    return colors[Math.floor(Math.random() * 6)]
-}
-
-
-
 export function PostCard(props: IPost) {
-    const [color, setColor] = useState<styles.ColorPaletteProp>(RandomColor);
+    const [color, setColor] = useState<styles.ColorPaletteProp>('neutral');
     const navigate = useNavigate();
     const { post, onEdit } = props;
 
 
     const HandelClick = (postBeingEdited: Post) => { onEdit(postBeingEdited); };
 
-    return (
-
-        
+    return (        
             <Card
             variant="soft"
             size="sm"
@@ -72,9 +56,7 @@ export function PostCard(props: IPost) {
 
                     <Typography level="body3" fontSize="md" sx={{ p: 2 }}>
                         {post.body}
-                    </Typography>
-
-                    
+                    </Typography>                    
 
                     <Stack
                     direction="row"
@@ -89,24 +71,7 @@ export function PostCard(props: IPost) {
                         >
                             Edit
                         </Button>
-                        <Button
-                            variant="solid"
-                            size="sm"
-                            onClick={() => {
-                                const colors: styles.ColorPaletteProp[] = [
-                                    'primary',
-                                    'neutral',
-                                    'danger',
-                                    'info',
-                                    'success',
-                                    'warning',
-                                ];
-                                const nextColor = colors.indexOf(color);
-                                setColor(colors[nextColor + 1] ?? colors[0]);
-                            }}
-                        >
-                            Color
-                        </Button>
+                        
                         <Button variant="solid" size="sm" onClick={() => navigate('/posts/' + post.id)}
                             sx={{
                                 mx: 1

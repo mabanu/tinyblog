@@ -4,11 +4,13 @@ import Chip from '@mui/joy/Chip';
 import Tabs from '@mui/joy/Tabs';
 import TabList from '@mui/joy/TabList';
 import Tab, { tabClasses } from '@mui/joy/Tab';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Button, ColorPaletteProp, Divider, IconButton, Input } from '@mui/joy';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import SendIcon from '@mui/icons-material/Send';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
+import HomeIcon from '@mui/icons-material/Home';
+import BookIcon from '@mui/icons-material/Book';
+import InfoIcon from '@mui/icons-material/Info';
+import SearchIcon from '@mui/icons-material/Search';
 
 interface IPropColor {
     color: ColorPaletteProp;
@@ -16,11 +18,11 @@ interface IPropColor {
 }
 
 function NavBar(props: IPropColor) {
-    const [index, setIndex] = React.useState(0);
+    const navigate = useNavigate();
 
     return (
-        <Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Box sx={{p: 2} }>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <IconButton
                     variant="soft"
                     size="sm"
@@ -38,23 +40,26 @@ function NavBar(props: IPropColor) {
                     }}
                     sx={{ borderRadius: '50%' }}
                 >
-                    <img alt="" src="/static/branding/pricing/block-green.svg" />
+                    <ColorLensIcon />
                 </IconButton>
                 <Divider orientation="vertical" />
-                <IconButton variant="plain">
-                    <FacebookRoundedIcon />
+                <IconButton variant="plain" onClick={() => navigate('/')}>
+                    <HomeIcon />
                 </IconButton>
-                <IconButton variant="plain">
-                    <GitHubIcon />
+                <IconButton variant="plain" onClick={() => navigate('/posts')}>
+                    <BookIcon />
+                </IconButton>
+                <IconButton variant="plain" onClick={() => navigate('/about')}>
+                    <InfoIcon />
                 </IconButton>
                 <Input
                     variant="soft"
-                    placeholder="Your Email"
-                    type="email"
-                    name="email"
+                    placeholder="Search"
+                    type="search"
+                    name="search"
                     endDecorator={
-                        <Button variant="soft" aria-label="subscribe">
-                            <SendIcon />
+                        <Button variant="soft" aria-label="search">
+                            <SearchIcon />
                         </Button>
                     }
                     sx={{ ml: 'auto', display: { xs: 'none', md: 'flex' } }}

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { CssVarsProvider, StyledEngineProvider } from '@mui/joy';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
     <React.StrictMode>
@@ -14,8 +14,8 @@ root.render(
             <CssVarsProvider>
                 <App />
             </CssVarsProvider>
-        </StyledEngineProvider>    
-  </React.StrictMode>
+        </StyledEngineProvider>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

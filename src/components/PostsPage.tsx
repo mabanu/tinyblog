@@ -1,4 +1,4 @@
-﻿import { Typography } from "@mui/joy";
+﻿import { Alert, Box, Button, CircularProgress, Divider, Typography } from "@mui/joy";
 import { Fragment, useEffect, useState } from "react";
 import { Post } from "./model/Post";
 import PostList from "./PostList";
@@ -61,37 +61,35 @@ function PostsPage() {
             <Typography level='h1'>Blog</Typography>
 
             {error && (
-                <div className='row'>
-                    <div className='card large error'>
-                        <section>
-                            <p>
-                                <span className='icon-alert inverse'></span>
-                                {error}
-                            </p>
-                        </section>
-                    </div>
-                </div>
+                <Alert>{error}</Alert>
             )}
 
             <PostList onSave={savePost} posts={posts} />
 
             {!loading && !error && (
-                <div className='row'>
-                    <div className='col-sm-12'>
-                        <div className='button-group fluid'>
-                            <button className='button defaul' onClick={handleMoreClick}>
-                                More...
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
+                <Box sx={{ py: 4 }}>
+                    <Divider>
+                        <Button variant="solid" size="sm" sx={{ mx: 0.5 }} onClick={handleMoreClick}>
+                            More...
+                        </Button>
+                    </Divider>
+                </Box>
+
             )}
 
             {loading && (
-                <div className='center-page'>
-                    <span className='spinner primary'></span>
-                    <p>Loading...</p>
-                </div>
+                <Box sx={{ py: 4 }}>
+                    <Divider>
+                        <Button
+                            variant="solid"
+                            size="sm" sx={{ mx: 0.5 }}
+                            startDecorator={<CircularProgress variant="solid" thickness={2} />}
+                            onClick={handleMoreClick}>
+                            Loading...
+                        </Button>
+                    </Divider>
+                </Box>
             )}
 
         </Fragment>

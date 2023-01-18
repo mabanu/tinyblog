@@ -90,7 +90,7 @@ function PostForm({ post: initialPost, onSave, onCancel }: PostFormProps) {
                         <p>{errors.title}</p>
                     </div>
                 )}
-                
+
                 <label htmlFor='body'>Post</label>
                 <Textarea
                     name='body'

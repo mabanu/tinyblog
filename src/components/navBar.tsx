@@ -17,7 +17,7 @@ function NavBar(props: IPropColor) {
     const navigate = useNavigate();
 
     return (
-        <Box sx={{p: 2} }>
+        <Box sx={{ p: 2 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <IconButton
                     variant="soft"

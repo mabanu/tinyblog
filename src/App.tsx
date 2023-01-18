@@ -33,7 +33,7 @@ function App() {
         <BrowserRouter>
             <Sheet
                 variant="solid"
-                color={color }
+                color={color}
                 invertedColors
                 sx={{
                     ...(color !== 'warning' && {

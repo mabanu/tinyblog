@@ -16,6 +16,6 @@ export class Post {
         if (initializer.body) this.body = initializer.body;
         if (initializer.userId) this.userId = initializer.userId;
         if (initializer.tags) this.tags = initializer.tags;
-        if (initializer.reactions) this.reactions = initializer.reactions;      
+        if (initializer.reactions) this.reactions = initializer.reactions;
     }
 }

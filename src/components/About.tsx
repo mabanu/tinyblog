@@ -1,7 +1,7 @@
 import Tests from "./Tests";
 
 export default function About() {
-    return (        
+    return (
         <Tests />
     )
 }

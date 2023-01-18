@@ -1,3 +1,4 @@
+import { Button, Card, Input, Stack, Textarea } from "@mui/joy";
 import { SyntheticEvent, useState } from "react";
 import { Errors } from "./model/Errors";
 import { Post } from "./model/Post";
@@ -24,7 +25,7 @@ function PostForm({ post: initialPost, onSave, onCancel }: PostFormProps) {
     const handleChange = (event: any) => {
         const { name, value } = event.target;
 
-        let updateValue =  value;      
+        let updateValue = value;
 
         const change = { [name]: updateValue, };
 
@@ -41,7 +42,7 @@ function PostForm({ post: initialPost, onSave, onCancel }: PostFormProps) {
     function validate(post: Post) {
         let errors: Errors = {
             title: '',
-            body: '',            
+            body: '',
         };
 
         if (post.title.length < 3) {
@@ -63,40 +64,57 @@ function PostForm({ post: initialPost, onSave, onCancel }: PostFormProps) {
     }
 
     return (
-        <form className='input-group vertical' onSubmit={handleSubmit}>
-            <label htmlFor='title'> Post Title</label>
-            <input
-                type='text'
-                name='title'
-                placeholder='enter title'
-                value={post.title}
-                onChange={handleChange}
-            />
-            {errors.title.length > 0 && (
-                <div className='card error'>
-                    <p>{errors.title}</p>
-                </div>
-            )}
+        <Card
+            variant="soft"
+            size="sm"
+            sx={{
+                flexDirection: { xs: 'row', md: 'column' },
+                minWidth: { xs: '100%', md: 'auto' },
+                gap: 1,
+                m: 0,
+                height: '100%'
+            }}
+        >
+            <form className='input-group vertical' onSubmit={handleSubmit}>
+                <label htmlFor='title'> Post Title</label>
+                <Input
+                    type='text'
+                    name='title'
+                    placeholder='enter title'
+                    value={post.title}
+                    onChange={handleChange}
+                />
+                {errors.title.length > 0 && (
+                    <div className='card error'>
+                        <p>{errors.title}</p>
+                    </div>
+                )}
 
-            <label htmlFor='body'>Post Body</label>
-            <textarea
-                name='body'
-                placeholder='enter description'
-                value={post.body}
-                onChange={handleChange}
-            ></textarea>
-            {errors.body.length > 0 && (
-                <div className='card error'>
-                    <p>{errors.body}</p>
-                </div>
-            )}                    
+                <label htmlFor='body'>Post Body</label>
+                <Textarea
+                    name='body'
+                    placeholder='enter description'
+                    value={post.body}
+                    onChange={handleChange}
+                ></Textarea>
+                {errors.body.length > 0 && (
+                    <div className='card error'>
+                        <p>{errors.body}</p>
+                    </div>
+                )}
 
-            <div className='input-group'>
-                <button className='primary bordered medium'>Save</button>
-                <span></span>
-                <button type='button' className='secondary bordered medium' onClick={onCancel}>Cancel</button>
-            </div>
-        </form>
+                <Stack
+                    direction="row"
+                    justifyContent="flex-end"
+                    alignItems="flex-end"
+                    sx={{ py: 2 }}
+                >
+                    <Button variant="solid" size="sm" sx={{ mx: 0.5 }} onClick={() => onSave(post)}>Save</Button>
+
+                    <Button variant="solid" size="sm" sx={{ mx: 0.5 }} onClick={onCancel} >Cancel</Button>
+                </Stack>
+            </form>
+        </Card>
     )
 }
 

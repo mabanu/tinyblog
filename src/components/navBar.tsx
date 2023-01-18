@@ -1,10 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/joy/Box';
-import Chip from '@mui/joy/Chip';
-import Tabs from '@mui/joy/Tabs';
-import TabList from '@mui/joy/TabList';
-import Tab, { tabClasses } from '@mui/joy/Tab';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, ColorPaletteProp, Divider, IconButton, Input } from '@mui/joy';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import HomeIcon from '@mui/icons-material/Home';

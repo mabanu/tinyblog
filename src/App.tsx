@@ -1,6 +1,6 @@
-import React, { createContext, useContext } from 'react';
+import React from 'react';
 import * as styles from '@mui/joy/styles';
-import { ColorPaletteProp, CssVarsProvider } from '@mui/joy/styles';
+import { ColorPaletteProp } from '@mui/joy/styles';
 import NavBar from './components/navBar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PostsPage from './components/PostsPage';
@@ -8,7 +8,6 @@ import PostPage from './components/PostPage';
 import About from './components/About';
 import HomePage from './components/HomePage';
 import { Sheet } from '@mui/joy';
-import { ThemeContext } from '@emotion/react';
 
 function RandomColor() {
     const colors: styles.ColorPaletteProp[] = [

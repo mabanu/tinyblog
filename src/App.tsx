@@ -22,7 +22,6 @@ function RandomColor() {
 }
 
 
-
 function App() {
 
     const [color, setColor] = React.useState<ColorPaletteProp>(RandomColor);

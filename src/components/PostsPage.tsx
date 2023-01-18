@@ -72,6 +72,7 @@ function PostsPage() {
                     </div>
                 </div>
             )}
+
             <PostList onSave={savePost} posts={posts} />
 
             {!loading && !error && (

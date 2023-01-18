@@ -36,12 +36,10 @@ export function PostCard(props: IPost) {
                 height: '100%'
             }}
         >
-
             <CardContent>
                 <Typography level="body2" fontSize='lg' sx={{ p: 2 }}>
                     {post.title}
                 </Typography>
-
                 <Stack
                     direction="row"
                     justifyContent="center"
@@ -54,11 +52,9 @@ export function PostCard(props: IPost) {
                         </Box>
                     ))}
                 </Stack>
-
-                <Typography level="body3" fontSize="md" sx={{ p: 2 }}>
+                <Typography level="body3" fontSize="md" sx={{ p: 2 }} >
                     {post.body}
                 </Typography>
-
                 <Stack
                     direction="row"
                     justifyContent="flex-end"
@@ -70,13 +66,11 @@ export function PostCard(props: IPost) {
                     >
                         Edit
                     </Button>
-
                     <Button variant="solid" size="sm" sx={{ mx: 0.5 }}
                         onClick={() => navigate('/posts/' + post.id)}
                     >
                         Go to Post
                     </Button>
-
                     <Button variant="solid" size="sm" sx={{ mx: 0.5 }}
                         onClick={() => setOpen(true)}
                     >

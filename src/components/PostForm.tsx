@@ -1,4 +1,4 @@
-import { Button, Card, Input, Stack, Textarea } from "@mui/joy";
+import { Button, Card, FormLabel, Input, Stack, Textarea } from "@mui/joy";
 import { SyntheticEvent, useState } from "react";
 import { Errors } from "./model/Errors";
 import { Post } from "./model/Post";
@@ -76,7 +76,7 @@ function PostForm({ post: initialPost, onSave, onCancel }: PostFormProps) {
             }}
         >
             <form className='input-group vertical' onSubmit={handleSubmit}>
-                <label htmlFor='title'> Post Title</label>
+                <label htmlFor='title'>Title</label>
                 <Input
                     type='text'
                     name='title'
@@ -84,19 +84,21 @@ function PostForm({ post: initialPost, onSave, onCancel }: PostFormProps) {
                     value={post.title}
                     onChange={handleChange}
                 />
+
                 {errors.title.length > 0 && (
                     <div className='card error'>
                         <p>{errors.title}</p>
                     </div>
                 )}
-
-                <label htmlFor='body'>Post Body</label>
+                
+                <label htmlFor='body'>Post</label>
                 <Textarea
                     name='body'
                     placeholder='enter description'
                     value={post.body}
                     onChange={handleChange}
                 ></Textarea>
+
                 {errors.body.length > 0 && (
                     <div className='card error'>
                         <p>{errors.body}</p>
@@ -110,7 +112,6 @@ function PostForm({ post: initialPost, onSave, onCancel }: PostFormProps) {
                     sx={{ py: 2 }}
                 >
                     <Button variant="solid" size="sm" sx={{ mx: 0.5 }} onClick={() => onSave(post)}>Save</Button>
-
                     <Button variant="solid" size="sm" sx={{ mx: 0.5 }} onClick={onCancel} >Cancel</Button>
                 </Stack>
             </form>

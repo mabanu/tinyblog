@@ -56,6 +56,19 @@ const tinyBlogAPI = {
             });
     },
 
+    getAll() {
+        return fetch(`${url}`)
+            .then(checkStatus)
+            .then(parseJSON)
+            .then(convertToPostModels)
+            .catch((error: TypeError) => {
+                console.log('log client error ' + error);
+                throw new Error(
+                    'There was an error retrieving the projects. Please try again.'
+                );
+            });
+    },
+
     put(post: Post) {
         return fetch(`${url}/${post.id}`, {
             method: 'PUT',

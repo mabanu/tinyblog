@@ -10,11 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { Post } from "./model/Post";
 import Stack from '@mui/joy/Stack';
 import { Modal, ModalClose, Sheet } from '@mui/joy';
-
-interface IPost {
-    post: Post;
-    onEdit: (post: Post) => void;
-}
+import { IPost } from './model/IPost';
 
 export function PostCard(props: IPost) {
     const [drop, setDrop] = useState(false);

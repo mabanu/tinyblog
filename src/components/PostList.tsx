@@ -2,13 +2,9 @@ import { Box } from "@mui/joy";
 import Grid from "@mui/joy/Grid";
 import { useState } from "react";
 import { Post } from "./model/Post";
+import { ProjectListProps } from "./model/ProjectListProps";
 import { PostCard } from "./PostCard";
 import PostForm from "./PostForm";
-
-interface ProjectListProps {
-    posts: Post[];
-    onSave: (post: Post) => void;
-}
 
 function ProjectList({ posts, onSave }: ProjectListProps) {
     const [postBeingEdited, setPostBeingEdited] = useState({});

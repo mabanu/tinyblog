@@ -21,11 +21,12 @@ function SectionPage({ posts, onSave }: ProjectListProps) {
         <>
             {sections.map((section) => (
                 <Box>
-                    {!drop &&
-                        <Button variant='plain' onClick={() => setDrop(true)}>
+                    {drop &&
+                        <Box>
+                        <Button variant='plain' onClick={() => setDrop(false)}>
                             <Typography level="body3" fontSize="md" sx={{ p: 2 }} >{section.toUpperCase()}</Typography>
 
-
+                            </Button>
                             <Grid container spacing={6} sx={{ flexGrow: 1, m: 0 }} justifyContent="center"
                                 alignItems="top">
                                 {posts.map((post) => (
@@ -46,11 +47,11 @@ function SectionPage({ posts, onSave }: ProjectListProps) {
                                     </Grid>
                                 ))}
                             </Grid>
-                        </Button>
+                        </Box>
                     }
 
-                    {drop &&
-                        <Button variant='plain' onClick={() => setDrop(false)}>
+                    {!drop &&
+                        <Button variant='plain' onClick={() => setDrop(true)}>
                             <Typography level="body3" fontSize="md" sx={{ p: 2 }} >{section.toUpperCase()}</Typography>                            
                         </Button>
                     }

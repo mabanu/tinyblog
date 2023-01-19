@@ -9,15 +9,17 @@ import PostForm from "./PostForm";
 function ProjectList({ posts, onSave }: ProjectListProps) {
     const [postBeingEdited, setPostBeingEdited] = useState({});
 
-    const HandleEdit = (post: Post) => { setPostBeingEdited(post) };
+    const handleEdit = (post: Post) => setPostBeingEdited(post);
 
-    const cancelEditing = () => {
-        setPostBeingEdited({});
-    }
+    const cancelEditing = () => setPostBeingEdited({});    
 
     return (
-        <Grid container spacing={6} sx={{ flexGrow: 1, m: 0 }} justifyContent="center"
-            alignItems="top">
+        <Grid
+            container spacing={6}
+            sx={{ flexGrow: 1, m: 0 }}
+            justifyContent="center"
+            alignItems="top"
+        >
             {posts.map((post) => (
                 <Grid key={post.id} xs={4} md={3} >
                     <Box>
@@ -29,7 +31,7 @@ function ProjectList({ posts, onSave }: ProjectListProps) {
                         ) : (
                             <PostCard
                                 post={post}
-                                onEdit={HandleEdit} />
+                                onEdit={handleEdit} />
                         )}
                     </Box>
                 </Grid>

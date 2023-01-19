@@ -17,7 +17,7 @@ interface IPost {
 }
 
 export function PostCard(props: IPost) {
-    const [color, setColor] = useState<styles.ColorPaletteProp>('neutral');
+    const [drop, setDrop] = useState(false);
     const navigate = useNavigate();
     const { post, onEdit } = props;
     const [open, setOpen] = useState(false);
@@ -52,9 +52,21 @@ export function PostCard(props: IPost) {
                         </Box>
                     ))}
                 </Stack>
-                <Typography level="body3" fontSize="md" sx={{ p: 2 }} >
-                    {post.body}
-                </Typography>
+
+                {!drop && <Button variant='plain' onClick={() => setDrop(true)}>
+                    <Typography level="body3" fontSize="md" sx={{ p: 2 }} >
+                        Read post
+                    </Typography>
+                </Button>
+                }
+
+                {drop && <Button variant='plain' onClick={() => setDrop(false)}>
+                    <Typography level="body3" fontSize="md" sx={{ p: 2 }} >
+                        {post.body}
+                    </Typography>
+                </Button>
+                }
+
                 <Stack
                     direction="row"
                     justifyContent="flex-end"
